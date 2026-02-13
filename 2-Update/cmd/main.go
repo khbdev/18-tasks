@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sync"
+
 )
 
 
@@ -42,23 +42,4 @@ CreateUser("Azizbek")
 fmt.Println(users)
 UpdateUser(1, "Javohir")
 fmt.Println(users)
-	var wg sync.WaitGroup
-
-	wg.Add(2)
-
-	go func() {
-		defer wg.Done()
-		for i := 0; i < 1000000000000000000; i++ {
-			fmt.Println("A:", i)
-		}
-	}()
-
-	go func() {
-		defer wg.Done()
-		for j := 0; j < 10000000000000; j++ {
-			fmt.Println("B:", j)
-		}
-	}()
-
-	wg.Wait()
 }
